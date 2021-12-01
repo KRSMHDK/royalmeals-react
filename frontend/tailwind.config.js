@@ -28,6 +28,8 @@ module.exports = {
       fontFamily: {
         Bodoni: ['Bodoni Moda', 'serif'],
         nunito: ['Nunito', 'serif'],
+        barriecito: ['Barriecito', 'cursive'],
+        birthstone: ['Birthstone', 'cursive'],
       },
     },
   },

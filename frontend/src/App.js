@@ -3,6 +3,7 @@ import Layout from './components/Layout';
 import MainContent from './components/MainContent';
 import Hero from './components/Hero';
 import NewRecipe from './components/NewRecipe';
+import Register from './components/Register';
 
 function App() {
   return (
@@ -12,12 +13,15 @@ function App() {
           <Layout>
             <Route exact path="/">
               <Hero />
-              <div className="container mx-auto">
-                <MainContent />{' '}
+              <div className="container px-20 mx-auto">
+                <MainContent />
               </div>
             </Route>
             <Route exact path="/addrecipe">
               <NewRecipe />
+            </Route>
+            <Route exact path="/register">
+              <Register />
             </Route>
           </Layout>
         </Switch>

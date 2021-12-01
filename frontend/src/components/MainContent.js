@@ -11,7 +11,7 @@ function MainContent() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await recipeService.getAll();
-      setRecipes(data);
+      setRecipes(data.reverse());
       setLoading(false);
     };
     fetchData();
@@ -27,53 +27,22 @@ function MainContent() {
     <>
       <h1 className="mt-5 text-4xl font-bold font-nunito">Newest Recipes</h1>
       <div className="grid grid-cols-1 gap-2 pt-5 sm:grid-cols-2 font-nunito md:grid-cols-3 ">
-        <div className="relative ">
-          <img
-            className="border-2 border-black "
-            src={`https://res.cloudinary.com/dtr2bqecp/image/upload/w_550,h_450,c_fill/v1633675614/${recipes[0].image}`}
-            alt={recipes[0].recipeTitle}
-          />
-          <div className="px-2 py-2">
-            <p className="text-2xl font-bold">{recipes[0].recipeTitle}</p>
-            <br />
-            <p>{recipes[0].description}</p>
+        {recipes.map((recipe) => (
+          <div className="relative ">
+            <img
+              className="mx-auto transition border border-black cursor-pointer duration-250 hover:opacity-60 "
+              src={`https://res.cloudinary.com/dtr2bqecp/image/upload/w_500,ar_3:2,c_fill,g_auto/v1633675614/${recipe.image}`}
+              alt={recipe.recipeTitle}
+            />
+            <div className="py-2 ">
+              <p className="text-2xl font-bold">{recipe.recipeTitle}</p>
+              <p className="mb-2 font-nunito">
+                Difficulty: {recipe.difficulty}
+              </p>
+              <p>{recipe.description}</p>
+            </div>
           </div>
-        </div>
-        <div className="relative ">
-          <img
-            className="border-2 border-black"
-            src={`https://res.cloudinary.com/dtr2bqecp/image/upload/v1633675614/${recipes[1].image}`}
-            alt={recipes[1].recipeTitle}
-          />
-          <div className="px-2 py-2">
-            <p className="text-2xl font-bold">{recipes[1].recipeTitle}</p>
-            <br />
-            <p>{recipes[1].description}</p>
-          </div>
-        </div>
-        <div className="relative ">
-          <img
-            className="border-2 border-black"
-            src={`https://res.cloudinary.com/dtr2bqecp/image/upload/v1633675614/${recipes[2].image}`}
-            alt={recipes[2].recipeTitle}
-          />
-          <div className="px-2 py-2">
-            <p className="text-2xl font-bold">{recipes[2].recipeTitle}</p>
-            <br />
-            <p>{recipes[2].description}</p>
-          </div>
-        </div>
-      </div>
-      <div className="grid grid-cols-1 gap-2 pt-5 sm:grid-cols-2 md:grid-cols-3 ">
-        <div className="">
-          <Featured />
-        </div>
-        <div className="">
-          <PopularRecipes />
-        </div>
-        <div className="">
-          <CookBook />
-        </div>
+        ))}
       </div>
     </>
   );

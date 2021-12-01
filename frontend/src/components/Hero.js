@@ -5,7 +5,7 @@ function Hero() {
     <div className="container relative z-0 w-full mx-auto h-96 lg:h-full">
       <img
         className="object-cover h-full "
-        src="https://res.cloudinary.com/dtr2bqecp/image/upload/c_crop,h_600,w_1920/v1633675614/recipeimages/qji7spqk3vtbluui0nfk.jpg"
+        src="https://res.cloudinary.com/dtr2bqecp/image/upload/w_1920,h_600,ar_16:9,c_fill,g_auto,e_sharpen/v1633712234/recipeimages/qji7spqk3vtbluui0nfk.jpg"
         alt="hero"
       />
 
