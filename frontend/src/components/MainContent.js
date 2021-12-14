@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Featured from './Featured';
 import PopularRecipes from './PopularRecipes';
 import CookBook from './CookBook';
+import { myContext } from '../pages/Context';
 import recipeService from '../services/recipes';
 
 function MainContent() {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
+  const ctx = useContext(myContext);
 
+  console.log(ctx);
   useEffect(() => {
     const fetchData = async () => {
       const data = await recipeService.getAll();

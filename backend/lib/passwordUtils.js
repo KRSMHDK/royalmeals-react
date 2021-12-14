@@ -19,5 +19,5 @@ function validatePassword(password, hash, salt) {
   return hash === hashVerify;
 }
 
-module.exports.validPassword = validatePassword;
+module.exports.validatePassword = validatePassword;
 module.exports.genPassword = genPassword;

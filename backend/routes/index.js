@@ -2,9 +2,20 @@ const router = require('express').Router();
 const passport = require('passport');
 const genPassword = require('../lib/passwordUtils').genPassword;
 const connection = require('../config/database');
-const User = connection.models.User;
+const User = require('../models/user.model');
 
-router.post('/login', passport.authenticate('local'), (req, res, next) => {});
+router.post('/login', (req, res, next) => {
+  passport.authenticate('local', (err, user, info) => {
+    if (err) throw err;
+    if (!user) res.send('No User Exists');
+    else {
+      req.logIn(user, (err) => {
+        if (err) throw err;
+        res.send('success');
+      });
+    }
+  })(req, res, next);
+});
 
 router.post('/register', (req, res, next) => {
   const saltHash = genPassword(req.body.password);
@@ -21,8 +32,15 @@ router.post('/register', (req, res, next) => {
   newUser.save().then((user) => {
     console.log(user);
   });
+});
 
-  res.redirect('/login');
+router.get('/user', (req, res) => {
+  res.send(req.user);
+});
+
+router.get('/logout', (req, res) => {
+  req.logout();
+  res.send('success');
 });
 
 module.exports = router;

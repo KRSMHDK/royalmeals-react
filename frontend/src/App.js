@@ -4,13 +4,33 @@ import MainContent from './components/MainContent';
 import Hero from './components/Hero';
 import NewRecipe from './components/NewRecipe';
 import Register from './components/Register';
+import Login from './components/Login';
+
+import { useContext } from 'react';
+import { myContext } from './pages/Context';
+import userService from './services/users';
 
 function App() {
+  const ctx = useContext(myContext);
   return (
     <div>
       <Router>
         <Switch>
           <Layout>
+            {ctx ? (
+              <>
+                <Route exact path="/logout"></Route>
+              </>
+            ) : (
+              <>
+                <Route exact path="/register">
+                  <Register />
+                </Route>
+                <Route exact path="/login">
+                  <Login />
+                </Route>
+              </>
+            )}
             <Route exact path="/">
               <Hero />
               <div className="container px-20 mx-auto">
@@ -19,9 +39,6 @@ function App() {
             </Route>
             <Route exact path="/addrecipe">
               <NewRecipe />
-            </Route>
-            <Route exact path="/register">
-              <Register />
             </Route>
           </Layout>
         </Switch>
