@@ -21,6 +21,14 @@ function MainHeader() {
       </div>
       {ctx ? (
         <span className="font-bold text-right ">
+          {ctx.isAdmin ? (
+            <Link to="/admin">
+              <p className="inline-block px-2 py-2 text-lg font-extrabold text-black bg-yellow-300 border-2 border-black cursor-pointer font-nunito">
+                Admin page
+              </p>
+            </Link>
+          ) : null}
+
           <Link
             onClick={() => {
               userService.logout();

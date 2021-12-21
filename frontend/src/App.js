@@ -8,7 +8,7 @@ import Login from './components/Login';
 
 import { useContext } from 'react';
 import { myContext } from './pages/Context';
-import userService from './services/users';
+import Admin from './components/Admin';
 
 function App() {
   const ctx = useContext(myContext);
@@ -19,6 +19,11 @@ function App() {
           <Layout>
             {ctx ? (
               <>
+                {ctx.isAdmin ? (
+                  <Route exact path="/admin">
+                    <Admin />
+                  </Route>
+                ) : null}
                 <Route exact path="/logout"></Route>
               </>
             ) : (

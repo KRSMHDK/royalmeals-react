@@ -19,6 +19,13 @@ const login = (newObject) => {
   return request.then((response) => console.log(response.data));
 };
 
+const getAllUsers = async () => {
+  const res = await axios.get(`${baseUrl}/getallusers`, {
+    withCredentials: true,
+  });
+  return res.data;
+};
+
 const getUser = async () => {
   const res = await axios.get(`${baseUrl}/user`, { withCredentials: true });
   return res.data;
@@ -34,11 +41,13 @@ const logout = async () => {
     });
   return res.data;
 };
+
 const users = {
   register: register,
   login: login,
   logout: logout,
   getUser: getUser,
+  getAllUsers: getAllUsers,
 };
 
 export default users;
