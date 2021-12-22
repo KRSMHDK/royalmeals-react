@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import MainContent from './components/MainContent';
-import Hero from './components/Hero';
 import NewRecipe from './components/NewRecipe';
 import Register from './components/Register';
 import Login from './components/Login';
@@ -16,36 +15,35 @@ function App() {
     <div>
       <Router>
         <Switch>
+          <Route exact path="/">
+            <Layout></Layout>
+            <div className="container px-20 mx-auto">
+              <MainContent />
+            </div>
+          </Route>
+
           <Route exact path="/register">
             <Register />
           </Route>
-          <Layout>
-            {ctx ? (
-              <>
-                {ctx.isAdmin ? (
-                  <Route exact path="/admin">
-                    <Admin />
-                  </Route>
-                ) : null}
-                <Route exact path="/logout"></Route>
-              </>
-            ) : (
-              <>
-                <Route exact path="/login">
-                  <Login />
+          <Route exact path="/addrecipe">
+            <NewRecipe />
+          </Route>
+          {ctx ? (
+            <>
+              {ctx.isAdmin ? (
+                <Route exact path="/admin">
+                  <Admin />
                 </Route>
-              </>
-            )}
-            <Route exact path="/">
-              <Hero />
-              <div className="container px-20 mx-auto">
-                <MainContent />
-              </div>
-            </Route>
-            <Route exact path="/addrecipe">
-              <NewRecipe />
-            </Route>
-          </Layout>
+              ) : null}
+              <Route exact path="/logout"></Route>
+            </>
+          ) : (
+            <>
+              <Route exact path="/login">
+                <Login />
+              </Route>
+            </>
+          )}
         </Switch>
       </Router>
     </div>

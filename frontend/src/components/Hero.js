@@ -2,23 +2,25 @@ import React from 'react';
 
 function Hero() {
   return (
-    <div className="container relative z-0 w-full mx-auto h-96 lg:h-full">
-      <img
-        className="object-cover h-full "
-        src="https://res.cloudinary.com/dtr2bqecp/image/upload/w_1920,h_600,ar_16:9,c_fill,g_auto,e_sharpen/v1633712234/recipeimages/qji7spqk3vtbluui0nfk.jpg"
-        alt="hero"
-      />
-
-      <div className="absolute px-4 py-6 bg-white shadow left-10 bottom-10 h-60 w-96">
-        <h1 className="text-4xl font-semibold font-nunito">
-          Super Green Pasta
-        </h1>
-        <p className="pt-2 font-nunito">
-          A very green pasta, with a couple of options for a speedy green pasta
-          sauce featuring a mix of basil, leafy greens, and zucchini. Dinner is
-          ready in the time it takes pasta to cook!
+    <div className="grid grid-cols-2 pl-20 mx-auto ">
+      <section className="pt-24 flex-rows pl-36 pr-36">
+        <p className="font-sans text-3xl font-semibold text-green-700 ">
+          Yummy!!
         </p>
-      </div>
+        <p className="mt-5 font-sans text-6xl font-bold text-green-800 ">
+          Good Food Bring Genuine Happiness
+        </p>
+        <button className="px-5 py-2 text-3xl font-bold bg-white border-4 border-none rounded-full hover:text-blue-800 pointer mt-9 font-nunito">
+          Find Recipe
+        </button>
+      </section>
+      <section className="">
+        <img
+          className="object-cover h-full "
+          src="https://res.cloudinary.com/dtr2bqecp/image/upload/v1640164985/recipeimages/v0apkza5ahk72atbmosr.png"
+          alt="hero"
+        />
+      </section>
     </div>
   );
 }

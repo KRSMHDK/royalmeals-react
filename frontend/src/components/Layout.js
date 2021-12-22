@@ -1,14 +1,13 @@
 import React from 'react';
 import Footer from './Footer';
+import Hero from './Hero';
 import MainHeader from './MainHeader';
-import NavBar from './NavBar';
 
 function Layout({ children }) {
   return (
-    <div>
+    <div className="bg-green-200">
       <MainHeader />
-      <NavBar />
-
+      <Hero />
       <div>{children}</div>
       <Footer />
     </div>

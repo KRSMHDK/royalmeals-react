@@ -29,6 +29,9 @@ module.exports = {
         blue: {
           bluebanner: '#C5D9ED',
         },
+        yellow: {
+          yellowlogin: '#FFDEC2',
+        },
       },
       fontFamily: {
         Bodoni: ['Bodoni Moda', 'serif'],

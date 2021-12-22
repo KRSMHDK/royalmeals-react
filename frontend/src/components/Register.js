@@ -22,11 +22,6 @@ function Register() {
         <div className="flex-row min-h-screen text-white bg-blue-bluebanner">
           <div className="px-20 py-10 ">
             <Link to="/">
-              <img
-                className="md:inline"
-                src="https://res.cloudinary.com/dtr2bqecp/image/upload/v1633749014/recipeimages/ieyo6glypfacipor7w77.png"
-                alt="logo"
-              />
               <span className="font-semibold text-black md:text-4xl font-birthstone">
                 Royal Meals
               </span>
