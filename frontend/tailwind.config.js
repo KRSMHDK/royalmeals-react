@@ -25,6 +25,11 @@ module.exports = {
         '450px': '450px',
         '500px': '500px',
       },
+      colors: {
+        blue: {
+          bluebanner: '#C5D9ED',
+        },
+      },
       fontFamily: {
         Bodoni: ['Bodoni Moda', 'serif'],
         nunito: ['Nunito', 'serif'],
