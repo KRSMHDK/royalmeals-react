@@ -34,6 +34,7 @@ module.exports = {
         },
       },
       fontFamily: {
+        playfairdisplay: ['Playfair Display', 'serif'],
         Bodoni: ['Bodoni Moda', 'serif'],
         nunito: ['Nunito', 'serif'],
         barriecito: ['Barriecito', 'cursive'],

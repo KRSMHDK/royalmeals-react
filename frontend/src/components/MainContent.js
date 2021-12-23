@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 
-import { myContext } from '../pages/Context';
+import { myContext } from '../context/Context';
 import recipeService from '../services/recipes';
 
 function MainContent() {
@@ -35,7 +35,7 @@ function MainContent() {
               src={`https://res.cloudinary.com/dtr2bqecp/image/upload/w_500,ar_3:2,c_fill,g_auto/v1633675614/${recipe.image}`}
               alt={recipe.recipeTitle}
             />
-            <div className="py-2 ">
+            <div className="py-2">
               <p className="text-2xl font-bold">{recipe.recipeTitle}</p>
               <p className="mb-2 font-nunito">
                 Difficulty: {recipe.difficulty}

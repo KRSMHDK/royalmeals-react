@@ -1,12 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { myContext } from '../pages/Context';
-
-import { AvatarGenerator } from 'random-avatar-generator';
-
-const generator = new AvatarGenerator();
+import { myContext } from '../context/Context';
+import userService from '../services/users';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 function MainHeader() {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   const ctx = useContext(myContext);
   return (
     <div className="container grid w-full grid-cols-3 py-5 mx-auto px-36">
@@ -30,21 +37,40 @@ function MainHeader() {
           </span>
         </Link>
       </div>
-      <section>
+      <section className="text-right">
         {ctx ? (
-          <span className="flex items-center justify-end font-bold text-right ">
-            <p>
-              <img
-                className="h-10"
-                src={generator.generateRandomAvatar(ctx._id)}
-                alt="avatar"
-              />
-            </p>
-
-            <p>{ctx.username}</p>
+          <span
+            onClick={handleClick}
+            className="px-2 py-4 font-semibold cursor-pointer"
+          >
+            <img
+              className="inline h-10 "
+              src={`https://avatars.dicebear.com/api/miniavs/:${ctx._id}.svg`}
+              alt="avatar"
+            />
+            <span>{ctx.username}</span>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MenuItem onClick={handleClose}>Profile</MenuItem>
+              <MenuItem onClick={handleClose}>My account</MenuItem>
+              <MenuItem
+                onClick={() => {
+                  userService.logout();
+                }}
+              >
+                Logout
+              </MenuItem>
+            </Menu>
           </span>
         ) : (
-          <span className="font-bold text-right ">
+          <span className="font-bold">
             <Link to="/register">
               <p className="inline-block px-2 py-2 text-lg text-black cursor-pointer hover:text-yellow-500 font-nunito">
                 Sign up

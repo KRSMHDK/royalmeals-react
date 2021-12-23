@@ -1,51 +1,39 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Layout from './components/Layout';
-import MainContent from './components/MainContent';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { render } from 'react-dom';
+import Home from './pages/Home';
+import MainHeader from './components/MainHeader';
 import NewRecipe from './components/NewRecipe';
 import Register from './components/Register';
 import Login from './components/Login';
 
 import { useContext } from 'react';
-import { myContext } from './pages/Context';
+import { myContext } from './context/Context';
 import Admin from './components/Admin';
 
 function App() {
   const ctx = useContext(myContext);
   return (
     <div>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Layout></Layout>
-            <div className="container px-20 mx-auto">
-              <MainContent />
-            </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route index element={<Home />} />
+            {ctx ? (
+              <>
+                {ctx.isAdmin ? (
+                  <Route path="admin" element={<Admin />} />
+                ) : null}
+                <Route path="logout"></Route>
+              </>
+            ) : (
+              <>
+                <Route path="login" element={<Login />} />
+                <Route path="register" element={<Register />} />
+              </>
+            )}
           </Route>
-
-          <Route exact path="/register">
-            <Register />
-          </Route>
-          <Route exact path="/addrecipe">
-            <NewRecipe />
-          </Route>
-          {ctx ? (
-            <>
-              {ctx.isAdmin ? (
-                <Route exact path="/admin">
-                  <Admin />
-                </Route>
-              ) : null}
-              <Route exact path="/logout"></Route>
-            </>
-          ) : (
-            <>
-              <Route exact path="/login">
-                <Login />
-              </Route>
-            </>
-          )}
-        </Switch>
-      </Router>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
