@@ -1,90 +1,70 @@
-import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { myContext } from '../context/Context';
-import userService from '../services/users';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import { useEffect } from 'react';
 
 function MainHeader() {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const ctx = useContext(myContext);
+  const Menu = [
+    { name: 'Recipe Index', link: '/' },
+    { name: 'Course', link: '/course' },
+    { name: 'Method', link: '/' },
+    { name: 'Cut', link: '/' },
+    { name: 'Cuisine', link: '/' },
+    { name: 'Type', link: '/' },
+    { name: 'Flavor', link: '/' },
+  ];
+
+  useEffect(() => {
+    const btn = document.querySelector('button.mobile-menu-button');
+    const menu = document.querySelector('.mobile-menu');
+
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  }, []);
+
   return (
-    <div className="container grid w-full grid-cols-3 py-5 mx-auto px-36">
-      <nav>
-        <ul className="items-center font-extrabold font-nunito py-7">
-          <li className="inline mr-5 align-middle ">
-            <Link to="/"> HOME </Link>
-          </li>
-
-          <li className="inline mr-5 align-middle">
-            <Link to="/addrecipe"> RECIPES </Link>
-          </li>
-
-          <li className="inline align-middle">ABOUT</li>
-        </ul>
-      </nav>
-      <div className="text-center">
-        <Link to="/">
-          <span className="font-semibold border-b-4 border-black md:text-6xl font-birthstone">
-            Royal Meals
-          </span>
-        </Link>
-      </div>
-      <section className="text-right">
-        {ctx ? (
-          <span
-            onClick={handleClick}
-            className="px-2 py-4 font-semibold cursor-pointer"
+    <div className="container flex w-full max-w-screen-lg px-5 py-5 mx-auto bg-black md:text-left md:bg-white ">
+      {/* Mobile menu */}
+      <div className="text-white md:hidden">
+        <button className="mobile-menu-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            <img
-              className="inline h-10 "
-              src={`https://avatars.dicebear.com/api/miniavs/:${ctx._id}.svg`}
-              alt="avatar"
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
             />
-            <span>{ctx.username}</span>
-            <Menu
-              id="basic-menu"
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'basic-button',
-              }}
-            >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={handleClose}>My account</MenuItem>
-              <MenuItem
-                onClick={() => {
-                  userService.logout();
-                }}
+          </svg>
+        </button>
+      </div>
+
+      <div className="flex-row md:flex">
+        <div>
+          <Link to="/">
+            <span className="mx-5 font-semibold text-white border-b-4 border-black whitespace-nowrap md:text-black md:text-3xl lg:text-6xl font-birthstone">
+              Royal Meals
+            </span>
+          </Link>
+        </div>
+
+        <nav className="hidden md:tracking-normal lg:tracking-wider md:flex whitespace-nowrap mobile-menu">
+          <ul className="mx-5 font-extrabold text-white md:text-black py-7">
+            {Menu.map((item) => (
+              <li
+                key={item.name}
+                className="mr-5 uppercase md:inline hover:text-yellow-600"
               >
-                Logout
-              </MenuItem>
-            </Menu>
-          </span>
-        ) : (
-          <span className="font-bold">
-            <Link to="/register">
-              <p className="inline-block px-2 py-2 text-lg text-black cursor-pointer hover:text-yellow-500 font-nunito">
-                Sign up
-              </p>
-            </Link>
-            {'/'}
-            <Link to="/login">
-              <p className="inline-block px-2 py-2 text-lg text-black cursor-pointer hover:text-yellow-500 font-nunito">
-                Login
-              </p>
-            </Link>
-          </span>
-        )}{' '}
-      </section>
+                <Link to={item.link}>{item.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
     </div>
   );
 }

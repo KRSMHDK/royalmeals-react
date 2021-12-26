@@ -31,51 +31,61 @@ function NewRecipe() {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container lg:pl-52 mx-auto ">
       <form
         onSubmit={addRecipe}
         className="flex flex-col gap-4"
         encType="multipart/form-data"
       >
+        <h1 className="text-2xl font-bold">ADD A RECIPE</h1>
         <div>
-          <label>Recipe Title</label>
           <input
             onChange={(event) => setRecipeTitle(event.target.value)}
             value={recipeTitle}
-            className="border shadow"
+            className="px-2 py-2 border border-black"
             type="text"
+            placeholder="Recipe title"
           />
         </div>
 
-        <div>
-          <label>Description</label>
+        <div className="">
           <textarea
             rows="5"
             cols="60"
             onChange={(event) => setDescription(event.target.value)}
             value={description}
-            className="border shadow"
+            className="px-2  py-2 max-w-md  border border-black"
+            placeholder="Recipe Description"
           />
         </div>
-
+        <h1 className="text-2xl font-bold ">INGREDIENTS</h1>
+        <h2>
+          Enter your ingredients one at a time or paste them into the box below
+          and hit enter.
+        </h2>
         <div>
-          <label>Ingredients</label>
           <textarea
             rows="5"
             cols="60"
             onChange={(event) => setIngredients(event.target.value)}
             value={ingredients}
-            className="border shadow"
+            placeholder="Ex: 1 cup of sugar"
+            className="px-2 py-2 border border-black "
           />
         </div>
+        <h1 className="text-2xl font-bold ">DESCRIPTION</h1>
+        <h2>
+          Enter your directions one step at a time or paste them into the box
+          below and hit enter. Don’t worry, we will number them for you.
+        </h2>
         <div>
-          <label>Instructions</label>
           <textarea
             rows="5"
             cols="60"
             onChange={(event) => setInstructions(event.target.value)}
             value={instructions}
-            className="border shadow"
+            placeholder="Ex: place all ingredients in blender"
+            className="px-2 py-2 border border-black"
           />
         </div>
         <div>

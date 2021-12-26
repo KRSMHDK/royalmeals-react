@@ -15,7 +15,7 @@ function Hero() {
       <section className="">
         <img
           className="object-cover h-full "
-          src="https://res.cloudinary.com/dtr2bqecp/image/upload/v1640164985/recipeimages/v0apkza5ahk72atbmosr.png"
+          src="https://res.cloudinary.com/dtr2bqecp/image/upload/c_scale,w_600/v1640346500/recipeimages/ps2cqdwhutrfym5g98gw.png"
           alt="hero"
         />
       </section>
