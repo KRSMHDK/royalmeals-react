@@ -25,6 +25,10 @@ module.exports = {
         '450px': '450px',
         '500px': '500px',
       },
+      backgroundImage: {
+        zigzagpattern:
+          'linear-gradient(135deg, #000 15px, transparent 16px), linear-gradient(-135deg, #000 15px, transparent 16px),',
+      },
       colors: {
         blue: {
           bluebanner: '#C5D9ED',

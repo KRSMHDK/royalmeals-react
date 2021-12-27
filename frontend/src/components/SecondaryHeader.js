@@ -11,7 +11,7 @@ function SecondaryHeader() {
   ];
 
   return (
-    <div className="hidden border-t-2 border-b-2 border-black  md:flex">
+    <div className="hidden border-t-2 border-b-2 border-black lg:flex">
       <nav className="container max-w-screen-lg mx-auto">
         <ul className="py-5 pl-10 ">
           {Category.map((category) => (

@@ -10,6 +10,7 @@ import { useContext } from 'react';
 import { myContext } from './context/Context';
 import Admin from './components/Admin';
 import AddRecipe from './pages/AddRecipe';
+import RecipeIndex from './pages/RecipeIndex';
 
 function App() {
   const ctx = useContext(myContext);
@@ -20,6 +21,7 @@ function App() {
           <Route path="/">
             <Route index element={<Home />} />
             <Route path="/addrecipe" element={<AddRecipe />} />
+            <Route path="/recipeindex" element={<RecipeIndex />} />
             {ctx ? (
               <>
                 {ctx.isAdmin ? (
