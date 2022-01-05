@@ -22,10 +22,26 @@ const recipeSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  method: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  cut: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  course: { type: String, required: true, trim: true },
+  cuisine: { type: String, required: true, trim: true },
+  flavor: { type: String, required: true, trim: true },
+  cooktime: { type: Number },
+  favorites: { type: Number },
   difficulty: { type: String, required: true, trim: true },
   image: {
     type: String,
   },
+  author: { type: String },
 });
 
 recipeSchema.set('toJSON', {

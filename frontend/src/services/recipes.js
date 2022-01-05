@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const baseUrl = 'http://localhost:3001/api/recipes';
 
 const getAll = () => {
@@ -16,14 +17,14 @@ const getById = async (id) => {
     const request = axios.get(`${baseUrl}/${id}`);
     return request.then((response) => response.data);
   } catch (err) {
-    console.error(ErrorEvent);
+    return err;
   }
 };
 
 const recipes = {
-  getAll: getAll,
-  create: create,
-  getById: getById,
+  getAll,
+  create,
+  getById,
 };
 
 export default recipes;

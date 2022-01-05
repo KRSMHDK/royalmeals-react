@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { myContext } from '../context/Context';
+import React, { useState, useEffect } from 'react';
 import recipeService from '../services/recipes';
+import { RecipeInterface } from '../interfaces/recipeInterface';
 
 function MainContent() {
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState<RecipeInterface[]>([]);
   const [loading, setLoading] = useState(true);
-  const ctx = useContext(myContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +16,7 @@ function MainContent() {
   }, []);
 
   if (loading) {
-    return <div></div>;
+    return <div />;
   }
 
   return (

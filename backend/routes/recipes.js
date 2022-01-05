@@ -37,23 +37,38 @@ router.route('/add').post(upload.single('image'), (req, res) => {
   const ingredients = req.body.ingredients;
   const difficulty = req.body.difficulty;
   const instructions = req.body.instructions;
+  const cut = req.body.cut;
+  const method = req.body.method;
+  const course = req.body.course;
+  const cuisine = req.body.cuisine;
+  const flavor = req.body.flavor;
   const image = req.file.filename;
+  const author = req.body.author;
 
   const newRecipeData = {
     recipeTitle,
     description,
-    difficulty,
     ingredients,
+    difficulty,
     instructions,
+    cut,
+    course,
+    flavor,
+    method,
+    cuisine,
     image,
+    author,
   };
 
   const newRecipe = new Recipe(newRecipeData);
-
-  newRecipe
-    .save()
-    .then(() => res.json('Recipe Added'))
-    .catch((err) => res.status(400).json('Error ' + err));
+  console.log(newRecipe);
+  newRecipe.save(function (err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(result);
+    }
+  });
 });
 
 router.route('/').get((req, res) => {

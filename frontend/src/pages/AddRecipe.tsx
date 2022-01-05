@@ -1,16 +1,15 @@
 import React from 'react';
 import AddNewRecipe from '../components/AddNewRecipe';
 import MainHeader from '../components/MainHeader';
+import TopHeader from '../components/TopHeader';
+
 function AddRecipe() {
   return (
     <div className="">
-      <div className="bg-yellow-200 border-b-4 border-black ">
-        <MainHeader />
-      </div>
+      <TopHeader />
+      <MainHeader />
 
-      <div className="px-5 pt-20 bg-slate-200">
-        <AddNewRecipe />
-      </div>
+      <AddNewRecipe />
     </div>
   );
 }

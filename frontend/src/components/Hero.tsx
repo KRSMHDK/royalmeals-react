@@ -8,7 +8,10 @@ function Hero() {
         <p className="mt-5 text-6xl font-semibold text-green-800 font-playfairdisplay ">
           Good Food Bring Genuine Happiness
         </p>
-        <button className="px-5 py-2 text-xl bg-white border-4 border-none rounded-full hover:text-blue-800 pointer mt-9 ">
+        <button
+          type="button"
+          className="px-5 py-2 text-xl bg-white border-4 border-none rounded-full hover:text-blue-800 pointer mt-9 "
+        >
           Find Recipe
         </button>
       </section>

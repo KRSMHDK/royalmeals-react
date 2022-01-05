@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const baseUrl = 'http://localhost:3001';
 
 const register = (newObject) => {
@@ -16,7 +17,7 @@ const login = (newObject) => {
         window.location.href = '/';
       }
     });
-  return request.then((response) => console.log(response.data));
+  return request.then((response) => response.data);
 };
 
 const getAllUsers = async () => {
@@ -34,8 +35,8 @@ const getUser = async () => {
 const logout = async () => {
   const res = await axios
     .get(`${baseUrl}/logout`, { withCredentials: true })
-    .then((res) => {
-      if (res.data === 'success') {
+    .then((r) => {
+      if (r.data === 'success') {
         window.location.href = '/';
       }
     });
@@ -43,11 +44,11 @@ const logout = async () => {
 };
 
 const users = {
-  register: register,
-  login: login,
-  logout: logout,
-  getUser: getUser,
-  getAllUsers: getAllUsers,
+  register,
+  login,
+  logout,
+  getUser,
+  getAllUsers,
 };
 
 export default users;

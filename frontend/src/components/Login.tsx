@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import userService from '../services/users';
 import { Link } from 'react-router-dom';
+import userService from '../services/users';
+
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = (event) => {
+  const handleLogin = (event: React.BaseSyntheticEvent) => {
     event.preventDefault();
 
-    const user = { username: username, password: password };
+    const user = { username, password };
 
-    console.log(user);
     userService.login(user);
   };
 
@@ -27,7 +27,7 @@ function Login() {
           </div>
           <div>
             <h1 className="px-20 pr-20 text-3xl font-bold text-yellow-900 ">
-              Discover the world's top Food Recipes.
+              Discover the world&apos;s top Food Recipes.
             </h1>
           </div>
           <div>
@@ -59,25 +59,29 @@ function Login() {
               encType="multipart/form-data"
             >
               <div className="mt-9">
-                <label className="block mb-2 font-bold ">Username</label>
-                <input
-                  onChange={(event) => setUsername(event.target.value)}
-                  value={username}
-                  name="username"
-                  className="block px-4 py-3 mb-3 text-gray-700 transition duration-100 ease-in bg-gray-100 border rounded-lg appearance-none hover:bg-white focus:outline-none hover:border-red-300 focus:border-red-300 w-96 "
-                  type="text"
-                />
+                <label htmlFor="username" className="block mb-2 font-bold ">
+                  Username
+                  <input
+                    onChange={(event) => setUsername(event.target.value)}
+                    value={username}
+                    name="username"
+                    className="block px-4 py-3 mb-3 text-gray-700 transition duration-100 ease-in bg-gray-100 border rounded-lg appearance-none hover:bg-white focus:outline-none hover:border-red-300 focus:border-red-300 w-96 "
+                    type="text"
+                  />
+                </label>
               </div>
 
               <div>
-                <label className="block mb-2 font-bold ">Password</label>
-                <input
-                  onChange={(event) => setPassword(event.target.value)}
-                  value={password}
-                  name="password"
-                  className="block px-4 py-3 mb-3 text-gray-700 transition duration-100 ease-in bg-gray-100 border rounded-lg appearance-none hover:bg-white focus:outline-none hover:border-red-300 focus:border-red-300 w-96 "
-                  type="password"
-                />
+                <label htmlFor="password" className="block mb-2 font-bold ">
+                  Password
+                  <input
+                    onChange={(event) => setPassword(event.target.value)}
+                    value={password}
+                    name="password"
+                    className="block px-4 py-3 mb-3 text-gray-700 transition duration-100 ease-in bg-gray-100 border rounded-lg appearance-none hover:bg-white focus:outline-none hover:border-red-300 focus:border-red-300 w-96 "
+                    type="password"
+                  />
+                </label>
               </div>
 
               <input
