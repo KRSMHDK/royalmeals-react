@@ -14,7 +14,7 @@ import {
 import userService from '../services/users';
 import { myContext } from '../context/Context';
 
-function TopHeader() {
+const TopHeader = () => {
   const socialMedia = [
     {
       name: 'facebook',
@@ -130,6 +130,6 @@ function TopHeader() {
       </section>
     </div>
   );
-}
+};
 
 export default TopHeader;

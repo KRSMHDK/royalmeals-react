@@ -3,7 +3,7 @@ import userService from '../services/users';
 
 type StateProperties = { username: string; isAdmin: boolean };
 
-function Admin() {
+const Admin = () => {
   const [userList, setUserList] = useState<Array<StateProperties>>();
 
   useEffect(() => {
@@ -37,6 +37,6 @@ function Admin() {
       </table>
     </div>
   );
-}
+};
 
 export default Admin;

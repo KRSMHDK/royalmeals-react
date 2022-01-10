@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import recipeService from '../services/recipes';
 import { RecipeInterface } from '../interfaces/recipeInterface';
 
-function Content() {
+const Content = () => {
   const [recipes, setRecipes] = useState<RecipeInterface[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -54,6 +54,6 @@ function Content() {
       </div>
     </div>
   );
-}
+};
 
 export default Content;

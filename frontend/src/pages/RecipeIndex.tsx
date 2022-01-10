@@ -6,7 +6,7 @@ import MainHeader from '../components/MainHeader';
 import SecondaryHeader from '../components/SecondaryHeader';
 import TopHeader from '../components/TopHeader';
 
-function RecipeIndex() {
+const RecipeIndex = () => {
   const Context = {
     title: 'Recipe Index',
     description:
@@ -25,6 +25,6 @@ function RecipeIndex() {
       <Footer />
     </div>
   );
-}
+};
 
 export default RecipeIndex;

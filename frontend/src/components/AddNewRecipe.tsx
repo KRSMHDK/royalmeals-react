@@ -16,7 +16,7 @@ type Inputs = {
   author: number;
 };
 
-function NewRecipe() {
+const NewRecipe = () => {
   const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
   return (
@@ -32,33 +32,33 @@ function NewRecipe() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <label
             htmlFor="recipeTitle"
-            className="text-2xl  font-bold whitespace-pre-wrap"
+            className="text-2xl font-bold whitespace-pre-wrap"
           >
             Recipe Title
             <input
-              className="border-2 block"
+              className="block border-2"
               placeholder="test"
               {...register('recipeTitle')}
             />
           </label>
           <label
             htmlFor="description"
-            className="text-2xl  font-bold whitespace-pre-wrap"
+            className="text-2xl font-bold whitespace-pre-wrap"
           >
             Description
             <textarea
-              className="border-2 block"
+              className="block border-2"
               placeholder="test"
               {...register('description')}
             />
           </label>
           <label
             htmlFor="instructions"
-            className="text-2xl  font-bold whitespace-pre-wrap"
+            className="text-2xl font-bold whitespace-pre-wrap"
           >
             Instructions
             <textarea
-              className="border-2 block"
+              className="block border-2"
               placeholder="test"
               {...register('instructions')}
             />
@@ -69,6 +69,6 @@ function NewRecipe() {
       </div>
     </div>
   );
-}
+};
 
 export default NewRecipe;

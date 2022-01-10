@@ -5,7 +5,7 @@ type Props = {
   description: string;
 };
 
-function ArchiveNav(props: Props) {
+const ArchiveNav = (props: Props) => {
   const { title, description } = props;
 
   return (
@@ -18,6 +18,6 @@ function ArchiveNav(props: Props) {
       </div>
     </div>
   );
-}
+};
 
 export default ArchiveNav;

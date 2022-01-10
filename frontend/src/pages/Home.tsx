@@ -5,19 +5,17 @@ import HighLight from '../components/HighLight';
 import SecondaryHeader from '../components/SecondaryHeader';
 import TopHeader from '../components/TopHeader';
 
-function Home() {
-  return (
-    <div>
-      <TopHeader />
-      <div className="pb-20 ">
-        <MainHeader />
-        <SecondaryHeader />
-        <HighLight />
-      </div>
-
-      <Footer />
+const Home = () => (
+  <div>
+    <TopHeader />
+    <div className="pb-20 ">
+      <MainHeader />
+      <SecondaryHeader />
+      <HighLight />
     </div>
-  );
-}
+
+    <Footer />
+  </div>
+);
 
 export default Home;

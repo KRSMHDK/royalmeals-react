@@ -8,7 +8,7 @@ import Admin from './components/Admin';
 import AddRecipe from './pages/AddRecipe';
 import RecipeIndex from './pages/RecipeIndex';
 
-function App() {
+const App = () => {
   const ctx = useContext(myContext);
   return (
     <div>
@@ -37,6 +37,6 @@ function App() {
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;

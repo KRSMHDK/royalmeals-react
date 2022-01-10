@@ -9,7 +9,7 @@ import { UserInterface } from '../interfaces/userInterfaces';
 
 export const myContext = createContext<Partial<UserInterface>>({});
 
-export default function Context(props: PropsWithChildren<any>) {
+const Context = (props: PropsWithChildren<any>) => {
   const { children } = props;
   const [user, setUser] = useState<Partial<UserInterface>>({});
 
@@ -17,4 +17,6 @@ export default function Context(props: PropsWithChildren<any>) {
     userService.getUser().then((data) => setUser(data));
   }, []);
   return <myContext.Provider value={user}>{children}</myContext.Provider>;
-}
+};
+
+export default Context;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function HighLight() {
+const HighLight = () => {
   const highLightItem = [
     {
       title: 'Recipe Index',
@@ -45,6 +45,6 @@ function HighLight() {
       </div>
     </div>
   );
-}
+};
 
 export default HighLight;

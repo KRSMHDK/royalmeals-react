@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Popover from '@mui/material/Popover';
 
-function MainHeader() {
+const MainHeader = () => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event: React.BaseSyntheticEvent) => {
@@ -101,6 +101,6 @@ function MainHeader() {
       </Popover>
     </div>
   );
-}
+};
 
 export default MainHeader;

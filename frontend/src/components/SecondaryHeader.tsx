@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SecondaryHeader() {
+const SecondaryHeader = () => {
   const Category = [
     '30 minute',
     'One Pot',
@@ -26,6 +26,6 @@ function SecondaryHeader() {
       </nav>
     </div>
   );
-}
+};
 
 export default SecondaryHeader;
